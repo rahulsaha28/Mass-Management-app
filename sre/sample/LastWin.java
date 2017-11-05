@@ -20,7 +20,7 @@ public class LastWin {
 
 
         //calculating each_persone cost
-        double[] eachCost = eachCost(meal,mealRate(bazarcost,meal),livCost,serviceCharge);
+        double[] eachCost = eachCost(meal,mealRate(bazarcost,meal),livCost,bazarcost,serviceCharge);
 
         window3 = new Stage();
 
@@ -64,12 +64,12 @@ public class LastWin {
     }
 
     //per person cost calculation
-    private static double[] eachCost(double[] meal, double mealRate, double[] livCost,double service){
+    private static double[] eachCost(double[] meal, double mealRate, double[] livCost,double[] bazarCost,double service){
 
         double[] perPersonCost = new double[meal.length];
 
         for(int i=0; i<meal.length; i++){
-            perPersonCost[i] = (mealRate*meal[i])+livCost[i]+service;
+            perPersonCost[i] = (mealRate*meal[i])+livCost[i]+service-bazarCost[i];
         }
 
         return perPersonCost;
